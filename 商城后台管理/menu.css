@@ -1,0 +1,134 @@
+.navbar-vertical-left {
+  position: fixed;/*悬浮式布局*/
+  left: 0; /*靠左 */
+  top: 53px; /*靠上*/
+  height: 100%; /*高度占页面比*/
+  width: 160px; /*宽度*/
+  overflow: hidden; /*文字过多溢出的话隐藏溢出的部分*/
+  border: none;/*无边框*/
+  border-radius: 0; /*无圆角*/
+  margin: 0;/*外边距为零*/
+  z-index: 999;/*z轴优先级极高*/
+}
+
+.navbar-vertical-left ul.navbar-nav {/*祖孙选择器*/
+  width: 100%;/*宽度占父元素的百分百,实际长度160+padding+border+margin*/  
+  height: 60%;
+  display: table;/*块级元素，自带回车*/
+  margin: 0;
+}
+
+.navbar-vertical-left ul.navbar-nav:before,
+.navbar-vertical-left ul.navbar-nav:after {
+  display: none;
+}
+
+
+.navbar-vertical-left ul.navbar-nav > li {
+  display: table-row;/*table-row类似于tr*/
+  float: none;/*元素不浮动*/
+}
+
+.navbar-vertical-left ul.navbar-nav > li > a {
+  display: table-cell;/*类似于td、th*/
+  vertical-align: middle;/*位于父元素中部*/
+}
+
+.navbar-vertical-left ul.navbar-nav > li > a > i.fa {
+  margin-right: 45px;/*左边框45px*/
+}
+
+/* Colors */
+
+.navbar-vertical-left {
+  background: #f8f8f8;/*侧边栏背景颜色*/
+  color: #000;
+}
+
+.navbar-vertical-left ul.navbar-nav > li > a {
+  color: #555;/*侧边栏元素字体颜色*/
+}
+
+.navbar-vertical-left ul.navbar-nav > li > a:hover,
+.navbar-vertical-left ul.navbar-nav > li > a:active {
+  background: #e7e7e7;/*侧边栏元素背景颜色*/
+}
+
+.navbar-vertical-left ul.navbar-nav > li > a.selected {
+  background: #d35400;
+}
+
+/* Animation */
+
+.navbar-vertical-left {
+  -webkit-transition: -webkit-transform .3s;
+     -moz-transition:    -moz-transform .3s;
+          transition:         transform .3s;
+
+  -webkit-transform: translateX(-100px);
+     -moz-transform: translateX(-100px);
+          transform: translateX(-100px);
+}
+.navbar-vertical-left:hover {
+  -webkit-transform: translateX(0px);
+     -moz-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.navbar-vertical-left ul.navbar-nav {
+  -webkit-transition: -webkit-transform .3s;
+     -moz-transition:    -moz-transform .3s;
+          transition:         transform .3s;
+
+  -webkit-transform: translateX(100px);
+     -moz-transform: translateX(100px);
+          transform: translateX(100px);
+}
+
+.navbar-vertical-left:hover ul.navbar-nav {
+  -webkit-transform: translateX(0px);
+     -moz-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+/* Mobile */
+
+@media(max-width: 768px) {
+  .navbar-vertical-left {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .navbar-vertical-left,
+  .navbar-vertical-left ul.navbar-nav {
+    -webkit-transition: none;
+       -moz-transition: none;
+            transition: none;
+    -webkit-transform: none;
+       -moz-transform: none;
+            transform: none;
+  }
+
+  .navbar-vertical-left ul.navbar-nav > li {
+    display: table-cell;
+  }
+
+  .navbar-vertical-left ul.navbar-nav > li > a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    line-height: 30px;
+  }
+
+  .navbar-vertical-left ul.navbar-nav > li > a > i.fa {
+    margin: 0;
+  }
+
+  .navbar-vertical-left ul.navbar-nav > li > a > span {
+    display: none;
+  }
+}
